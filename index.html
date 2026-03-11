@@ -1,258 +1,321 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Landing page</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Pankaj Bhardwaj | Way2Laabh™</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','957710070046984');fbq('track','PageView');</script>
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
+:root{
+  --gold:#FFD700;--gold2:#FFA500;--cyan:#00e5ff;
 }
 
-/* 🔒 GLOBAL LINK SAFE */
-a,
-a:hover,
-a:active,
-a:visited{
-  text-decoration:none !important;
-  color:inherit !important;
-}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+a,a:hover,a:visited{text-decoration:none!important;color:inherit!important;}
 
-body{
-  background:black;
-  color:white;
-  text-align:center;
-  height:100vh;
+html,body{
+  width:100%;height:100%;
   overflow:hidden;
-  position:relative;
-}
-
-/* BACKGROUND */
-.background{
-  position:fixed;
-  inset:0;
-  background:url('/image/Фон города для Фотошопа - скачать фото бесплатно.jpeg') center/cover no-repeat;
-  filter:blur(1px);
-  z-index:-2;
-}
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  z-index:-1;
-}
-
-/* BUBBLES */
-.bubbles span{
-  position:absolute;
-  bottom:-50px;
-  width:20px;height:20px;
-  background:rgba(255,255,255,.2);
-  border-radius:50%;
-  animation:rise 10s linear infinite;
-}
-.bubbles span:nth-child(2){width:30px;height:30px;left:20%;animation-duration:7s;}
-.bubbles span:nth-child(3){width:40px;height:40px;left:40%;animation-duration:9s;}
-.bubbles span:nth-child(4){width:50px;height:50px;left:60%;animation-duration:6s;}
-.bubbles span:nth-child(5){width:60px;height:60px;left:80%;animation-duration:8s;}
-
-@keyframes rise{
-  0%{bottom:-50px;opacity:0}
-  50%{opacity:1}
-  100%{bottom:100%;opacity:0}
-}
-
-/* CONTENT */
-.container{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  padding:15px;
-  position:relative;
-  z-index:2;
-}
-
-.blur-box{
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(12px);
-  border-radius:15px;
-  padding:25px;
-  width:90%;
-  max-width:400px;
-  box-shadow:0 0 20px rgba(0,230,255,.6);
-}
-
-h1{
-  color:#00e6ff;
-  font-size:24px;
-  margin-bottom:10px;
-  text-transform:uppercase;
-}
-
-.timer{
-  font-size:22px;
-  font-weight:700;
-  margin:10px 0;
-}
-
-.profile img{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  border:3px solid #00e6ff;
-  box-shadow:0 0 15px #00e6ff;
-  margin:10px 0;
-  object-fit:cover;
-}
-
-/* BUTTON */
-@keyframes shine{
-  from{background-position:-200%}
-  to{background-position:200%}
-}
-@keyframes zoom{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.15)}
-  100%{transform:scale(1)}
-}
-
-.view-btn{
-  display:inline-block;
-  height:45px;
-  line-height:45px;
-  padding:0 26px;
-  border-radius:35px;
-  font-size:16px;
-  font-weight:600;
-  background:linear-gradient(45deg,#32B0ED,#3a7bd5);
-  background-size:400% 400%;
-  animation:shine 8s linear infinite,zoom 3s ease-in-out infinite;
+  font-family:'Exo 2',sans-serif;
   color:#fff;
-  margin-top:10px;
 }
 
-.footer-text{
-  font-size:13px;
-  margin-top:14px;
-  opacity:.85;
+/* ── FULL SCREEN BG ── */
+body{
+  background:
+    radial-gradient(ellipse 100% 60% at 50% 0%,rgba(0,229,255,.15) 0%,transparent 65%),
+    radial-gradient(ellipse 70% 50% at 100% 100%,rgba(255,165,0,.13) 0%,transparent 65%),
+    linear-gradient(160deg,#020810 0%,#030c1a 55%,#04090e 100%);
+  position:relative;
 }
 
-/* CREDIT */
-.credit{
-  position:absolute;
-  bottom:10px;
+/* grid overlay */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,229,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,255,.03) 1px,transparent 1px);
+  background-size:50px 50px;
+  pointer-events:none;z-index:0;
+}
+
+/* ── PARTICLES ── */
+.p{
+  position:fixed;border-radius:50%;
+  animation:floatUp linear infinite;opacity:0;
+  pointer-events:none;z-index:1;
+}
+.p:nth-child(1){width:3px;height:3px;left:8%;background:var(--gold);animation-duration:11s;animation-delay:0s;}
+.p:nth-child(2){width:3px;height:3px;left:25%;background:var(--cyan);animation-duration:8s;animation-delay:1.5s;}
+.p:nth-child(3){width:2px;height:2px;left:45%;background:#fff;animation-duration:13s;animation-delay:3s;}
+.p:nth-child(4){width:4px;height:4px;left:65%;background:var(--gold2);animation-duration:9s;animation-delay:.5s;}
+.p:nth-child(5){width:3px;height:3px;left:80%;background:var(--cyan);animation-duration:10s;animation-delay:4s;}
+.p:nth-child(6){width:2px;height:2px;left:15%;background:var(--gold);animation-duration:12s;animation-delay:5s;}
+.p:nth-child(7){width:3px;height:3px;left:55%;background:#fff;animation-duration:7s;animation-delay:2s;}
+@keyframes floatUp{
+  0%{bottom:-10px;opacity:0;}15%{opacity:1;}85%{opacity:.4;}
+  100%{bottom:105vh;opacity:0;}
+}
+
+/* ── MAIN LAYOUT — true full screen ── */
+.screen{
+  position:relative;z-index:10;
+  width:100%;height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:clamp(10px,3vw,22px) clamp(14px,5vw,32px) clamp(8px,2vw,16px);
+}
+
+/* ── TOP: BADGE ── */
+.badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,215,0,.1);
+  border:1px solid rgba(255,215,0,.3);
+  border-radius:40px;
+  padding:5px 18px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:clamp(10px,2.5vw,12px);font-weight:700;
+  letter-spacing:1.8px;color:var(--gold);text-transform:uppercase;
+  animation:fd .4s .1s both;
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:pulse 1.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.2;transform:scale(.5)}}
+
+/* ── MIDDLE SECTION ── */
+.mid{
+  display:flex;flex-direction:column;
+  align-items:center;
+  gap:clamp(6px,1.8vh,14px);
   width:100%;
+}
+
+/* TITLE */
+.title{
+  font-family:'Rajdhani',sans-serif;
+  font-size:clamp(20px,6vw,34px);font-weight:700;
+  line-height:1.15;letter-spacing:1px;text-align:center;
+  background:linear-gradient(135deg,#FFD700 0%,#FFF3A0 45%,#FFA500 75%,#FFD700 100%);
+  background-size:200% 200%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  animation:goldShift 4s ease infinite, fd .4s .2s both;
+}
+@keyframes goldShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* SUBTITLE */
+.sub{
+  font-size:clamp(11px,3vw,14px);
+  color:rgba(255,255,255,.68);
+  line-height:1.5;text-align:center;
+  animation:fd .4s .3s both;
+}
+.sub strong{color:var(--cyan);}
+
+/* AVATAR ROW — centered */
+.avatar-row{
+  display:flex;flex-direction:column;align-items:center;gap:clamp(6px,1.5vw,10px);
+  animation:fd .4s .4s both;
+  width:100%;
+}
+
+.avatar-wrap{position:relative;display:inline-block;flex-shrink:0;}
+.ring1{
+  position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid transparent;
+  background:linear-gradient(135deg,var(--gold),var(--cyan),var(--gold2)) border-box;
+  -webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:destination-out;mask-composite:exclude;
+  animation:spin 5s linear infinite;
+}
+.ring2{position:absolute;inset:-13px;border-radius:50%;border:1px solid rgba(0,229,255,.18);animation:spin 10s linear infinite reverse;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar{
+  width:clamp(75px,18vw,95px);
+  height:clamp(75px,18vw,95px);
+  border-radius:50%;object-fit:cover;display:block;
+  position:relative;z-index:2;
+  box-shadow:0 0 30px rgba(255,215,0,.28),0 0 60px rgba(0,229,255,.1);
+}
+
+.avatar-info{text-align:center;}
+.av-name{
+  font-family:'Rajdhani',sans-serif;
+  font-size:clamp(15px,4vw,20px);font-weight:700;
+  color:#fff;letter-spacing:.5px;line-height:1.2;
+}
+.av-tag{
+  font-size:clamp(10px,2.5vw,12px);
+  color:var(--cyan);letter-spacing:.3px;margin-top:2px;
+}
+
+/* STATS */
+.stats{
+  display:flex;gap:clamp(8px,2.5vw,16px);
+  width:100%;justify-content:center;
+  animation:fd .4s .5s both;
+}
+.stat{
+  flex:1;max-width:100px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:12px;
+  padding:clamp(7px,2vh,11px) 6px;
   text-align:center;
-  font-size:12px;
-  color:#00e6ff;
-  opacity:.85;
 }
-.credit a{
-  color:#00ffcc;
-  font-weight:600;
+.stat-n{
+  font-family:'Rajdhani',sans-serif;
+  font-size:clamp(17px,5vw,22px);font-weight:700;
+  color:var(--gold);line-height:1;
 }
+.stat-l{font-size:clamp(9px,2.2vw,11px);color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
+
+/* FEATURES — horizontal chips */
+.feats{
+  display:flex;flex-wrap:wrap;gap:clamp(5px,1.5vw,8px);
+  justify-content:center;
+  width:100%;
+  animation:fd .4s .6s both;
+}
+.feat{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:30px;
+  padding:5px 12px;
+  font-size:clamp(10px,2.5vw,12.5px);
+  color:rgba(255,255,255,.8);white-space:nowrap;
+}
+.feat span{font-size:13px;}
+
+/* ── BOTTOM ── */
+.bottom{
+  width:100%;
+  display:flex;flex-direction:column;
+  align-items:center;
+  gap:clamp(6px,1.5vh,10px);
+  animation:fd .4s .75s both;
+}
+
+/* CTA */
+.cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;max-width:360px;
+  height:clamp(46px,7vh,56px);
+  border-radius:14px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:clamp(15px,4.5vw,18px);font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  color:#04080f;
+  background:linear-gradient(135deg,#FFD700 0%,#FFA500 50%,#FFD700 100%);
+  background-size:200% 200%;
+  border:none;cursor:pointer;
+  box-shadow:0 4px 32px rgba(255,165,0,.5);
+  animation:goldShift 3s ease infinite, ctaGlow 2s ease-in-out 1.5s infinite, ctaZoom 1.8s ease-in-out infinite;
+  position:relative;overflow:hidden;
+  transition:box-shadow .15s;
+}
+@keyframes ctaZoom{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.06);}
+}
+.cta::after{
+  content:'';
+  position:absolute;top:0;left:-70%;width:40%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+  transform:skewX(-20deg);
+  animation:sheen 3.5s ease 2s infinite;
+}
+@keyframes sheen{0%{left:-70%}35%{left:140%}100%{left:140%}}
+@keyframes ctaGlow{
+  0%,100%{box-shadow:0 4px 32px rgba(255,165,0,.5)}
+  50%{box-shadow:0 4px 55px rgba(255,165,0,.75),0 0 0 7px rgba(255,165,0,.1)}
+}
+.cta:active{transform:scale(.96);}
+
+/* TRUST + CREDIT */
+.trust{
+  font-size:clamp(10px,2.5vw,12px);
+  color:rgba(255,255,255,.38);text-align:center;line-height:1.6;
+}
+.trust b{color:rgba(0,229,255,.7);}
+
+.credit{font-size:clamp(9px,2vw,11px);color:rgba(255,255,255,.22);}
+.credit a{color:var(--cyan)!important;font-weight:600;}
+
+@keyframes fd{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
 </style>
-
-
 </head>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '957710070046984');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=957710070046984&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 <body>
 
-<div class="background"></div>
-<div class="overlay"></div>
+<!-- particles -->
+<div class="p"></div><div class="p"></div><div class="p"></div>
+<div class="p"></div><div class="p"></div><div class="p"></div>
+<div class="p"></div>
 
-<div class="bubbles">
-  <span></span><span></span><span></span><span></span><span></span>
-</div>
+<div class="screen">
 
-<div class="container">
-  <div class="blur-box">
-    <h1>PANKAJ BHARDWAJ WAY2LAABH ™ ✈️(SEBI REGESTERD)
-
-</h1>
-    <p>💰Introductory Guide to Options Strategy 🎯</p>
-
-    <div class="timer">
-      <span id="countdown">3</span> SECONDS
-    </div>
-
-    <div class="profile">
-      <img src="http://zentryx.fun/wp-content/uploads/2026/01/pankaj.jpg" alt="Trader">
-    </div>
-
-    <h2>40,000 Subscribers</h2>
-    <p>✅ BankNifty, Nifty, Stock Options Covered 💹</p>
-
-    <a href="https://t.me/+WUDiRio42gplMzFl" class="view-btn">
-      JOIN NOW FOR FREE
-    </a>
-
-    <p class="footer-text">
-      💎 Trusted by thousands of traders worldwide 🌍
-    </p>
+  <!-- TOP BADGE -->
+  <div class="badge">
+    <span class="dot"></span>
+    SEBI Registered &nbsp;✦&nbsp; Official Channel
   </div>
+
+  <!-- MIDDLE -->
+  <div class="mid">
+
+    <div class="title">PANKAJ BHARDWAJ<br>WAY2LAABH™ ✈️</div>
+
+    <div class="sub">
+      <strong>💰 Options Strategy Guide 🎯</strong> &nbsp;—&nbsp;
+      BankNifty · Nifty · Stock Options &nbsp;|&nbsp; <strong>100% Free</strong>
+    </div>
+
+    <div class="avatar-row">
+      <div class="avatar-wrap">
+        <div class="ring2"></div>
+        <div class="ring1"></div>
+        <img class="avatar" src="http://zentryx.fun/wp-content/uploads/2026/01/pankaj.jpg" alt="Pankaj Bhardwaj" loading="eager">
+      </div>
+      <div class="avatar-info">
+        <div class="av-name">Pankaj Bhardwaj</div>
+        <div class="av-tag">🛡️ SEBI Reg. Advisor</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-n">40K+</div><div class="stat-l">Members</div></div>
+      <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Free</div></div>
+      <div class="stat"><div class="stat-n">5 ★</div><div class="stat-l">Rated</div></div>
+      <div class="stat"><div class="stat-n">Daily</div><div class="stat-l">Calls</div></div>
+    </div>
+
+    <div class="feats">
+      <div class="feat"><span>📈</span> BankNifty &amp; Nifty</div>
+      <div class="feat"><span>💹</span> Stock Options</div>
+      <div class="feat"><span>🎯</span> Live Calls</div>
+      <div class="feat"><span>📚</span> Free Education</div>
+      <div class="feat"><span>⚡</span> Real-time Updates</div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="bottom">
+    <a href="https://t.me/+WUDiRio42gplMzFl" class="cta">
+      🚀&nbsp; JOIN FREE ON TELEGRAM
+    </a>
+    <div class="trust">
+      💎 Trusted by <b>thousands of traders</b> across India 🌍 &nbsp;|&nbsp; No hidden fees
+    </div>
+    <div class="credit">
+      Ads by <a href="https://t.me/+TRlJl628l-FkMWE9" target="_blank">@Nexgroww_agency</a>
+    </div>
+  </div>
+
 </div>
 
-<!-- ⭐ CREDIT LINE -->
-<div class="credit">
-  Ads managed by 
-  <a href="https://t.me/+TRlJl628l-FkMWE9" target="_blank">
-    @Nexgroww_agency
-  </a>
-</div>
-
-<script>
-//let countdown=3;
-setInterval(()=>{
-//  document.getElementById("countdown").innerText=countdown;
-  if(countdown===0){
- //   window.location.href="https://t.me/+8_8YSXRb0Ng0YzVl";
-  }
-  countdown--;
-},1000);
-</script>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '816646484337241');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=816646484337241&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','816646484337241');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=816646484337241&ev=PageView&noscript=1"/></noscript>
 </body>
 </html>
